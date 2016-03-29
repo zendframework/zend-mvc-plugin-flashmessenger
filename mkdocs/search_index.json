@@ -1,13 +1,13 @@
 {
     "docs": [
         {
-            "location": "/",
-            "text": "zend-mvc-plugin-flashmessenger\n\n\n\n\n\n\nFlash messages \nderive from Rails\n,\nand are used to expose messages from one action to the next, after which they\nare cleared; a typical use case is with\n\nPost/Redirect/Get\n, where\nthey are created in the \nPOST\n handler, and then displayed by the \nGET\n handler\nto indicate success or failure to the end-user.\n\n\nThis component provides a flash messenger controller plugin for\n\nzend-mvc\n versions 3.0 and up.\n\n\n\n\nFile issues at https://github.com/zendframework/zend-mvc-plugin-flashmessenger/issues\n\n\nDocumentation is at https://zendframework.github.io/zend-mvc-plugin-flashmessenger/",
+            "location": "/", 
+            "text": "zend-mvc-plugin-flashmessenger\n\n\n\n\n\n\nFlash messages \nderive from Rails\n,\nand are used to expose messages from one action to the next, after which they\nare cleared; a typical use case is with\n\nPost/Redirect/Get\n, where\nthey are created in the \nPOST\n handler, and then displayed by the \nGET\n handler\nto indicate success or failure to the end-user.\n\n\nThis component provides a flash messenger controller plugin for\n\nzend-mvc\n versions 3.0 and up.\n\n\n\n\nFile issues at https://github.com/zendframework/zend-mvc-plugin-flashmessenger/issues\n\n\nDocumentation is at https://zendframework.github.io/zend-mvc-plugin-flashmessenger/", 
             "title": "Home"
-        },
+        }, 
         {
-            "location": "/#zend-mvc-plugin-flashmessenger",
-            "text": "Flash messages  derive from Rails ,\nand are used to expose messages from one action to the next, after which they\nare cleared; a typical use case is with Post/Redirect/Get , where\nthey are created in the  POST  handler, and then displayed by the  GET  handler\nto indicate success or failure to the end-user.  This component provides a flash messenger controller plugin for zend-mvc  versions 3.0 and up.   File issues at https://github.com/zendframework/zend-mvc-plugin-flashmessenger/issues  Documentation is at https://zendframework.github.io/zend-mvc-plugin-flashmessenger/",
+            "location": "/#zend-mvc-plugin-flashmessenger", 
+            "text": "Flash messages  derive from Rails ,\nand are used to expose messages from one action to the next, after which they\nare cleared; a typical use case is with Post/Redirect/Get , where\nthey are created in the  POST  handler, and then displayed by the  GET  handler\nto indicate success or failure to the end-user.  This component provides a flash messenger controller plugin for zend-mvc  versions 3.0 and up.   File issues at https://github.com/zendframework/zend-mvc-plugin-flashmessenger/issues  Documentation is at https://zendframework.github.io/zend-mvc-plugin-flashmessenger/", 
             "title": "zend-mvc-plugin-flashmessenger"
         }
     ]
