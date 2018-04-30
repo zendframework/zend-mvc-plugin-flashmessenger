@@ -3,8 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2016-07-05</lastmod>
+     <loc>/</loc>
+     <lastmod>2018-04-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/flash-messenger-view-helper/</loc>
+     <lastmod>2018-04-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
