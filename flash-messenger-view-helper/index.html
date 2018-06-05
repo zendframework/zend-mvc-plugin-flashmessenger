@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plugin for creating and exposing flash messages via zend-mvc controllers">  
-    <link rel="shortcut icon" href="./img/favicon.ico">
+    <link rel="shortcut icon" href="../img/favicon.ico">
 
-    <title>Home - zend-mvc-plugin-flashmessenger</title>
+    <title>View Helper - zend-mvc-plugin-flashmessenger</title>
 
-    <link rel="stylesheet" href="./css/styles-f773ae3616.css">
+    <link rel="stylesheet" href="../css/styles-f773ae3616.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="./img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href=".">zend-mvc-plugin-flashmessenger</a>
+            <a href="..">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,13 +75,13 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                        <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
-                    <li class="subnavigation__list-item ">
-                        <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                    <li class="subnavigation__list-item subnavigation__list-item--active">
+                        <a href="./" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -146,30 +146,156 @@
                     <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
   <li><a href="https://framework.zend.com/">Home</a></li>
   <li><a href="https://docs.zendframework.com/">Docs</a></li>
-  <li><a href=".">zend-mvc-plugin-flashmessenger</a></li>
+  <li><a href="..">zend-mvc-plugin-flashmessenger</a></li>
   
     
   
-  <li class="active">Home</li>
+  <li class="active">View Helper</li>
 </ol>
 
 
-    <h1>zend-mvc-plugin-flashmessenger</h1>
-<p>Plugin for creating and exposing flash messages via zend-mvc controllers</p>
+    
+    
+
+    
+    
+        <div class="toc">
+            <h6 class="toc__headline">In This Article</h6>
+            <ul class="toc__list">
+                
+                    <li class="toc__entry">
+                        <a href="#basic-usage" class="toc__link">Basic Usage</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#css-layout" class="toc__link">CSS Layout</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#html-layout" class="toc__link">HTML Layout</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#sample-modification-for-twitter-bootstrap-3" class="toc__link">Sample Modification for Twitter Bootstrap 3</a>
+                    </li>
+                
+                    <li class="toc__entry">
+                        <a href="#alternative-configuration-of-the-viewhelper-layout" class="toc__link">Alternative Configuration of the ViewHelper Layout</a>
+                    </li>
+                
+            </ul>
+        </div>
+    
 
 
-    <h2>Installation</h2>
-    <h3>Using Composer</h3>
-    <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-flashmessenger</code></pre>
+    <h1 id="flashmessenger-view-helper">FlashMessenger View Helper</h1>
+<p>The <code>FlashMessenger</code> helper is used to render the messages of the
+<a href="../flash-messenger-plugin/">FlashMessenger controller plugin</a>.</p>
+<h2 id="basic-usage">Basic Usage</h2>
+<p>When only using the default <code>namespace</code> for the <code>FlashMessenger</code>, you can do the
+following:</p>
+<pre class="codehilite"><code class="language-php">// Usable in any of your .phtml files
+echo $this-&gt;flashMessenger()-&gt;render();</code></pre>
 
+<p>The first argument of the <code>render()</code> function is the <code>namespace</code>. If no
+<code>namespace</code> is defined, the default
+<code>Zend\Mvc\Controller\Plugin\FlashMessenger::NAMESPACE_DEFAULT</code> will be used,
+which translates to <code>default</code>.</p>
+<pre class="codehilite"><code class="language-php">// Usable in any of your .phtml files
+echo $this-&gt;flashMessenger()-&gt;render('error');
 
-<h2>Support</h2>
-<ul>
-    <li>Issues: <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/issues/">github.com/zendframework/zend-mvc-plugin-flashmessenger/issues</a></li>
-    <li>Source: <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/">github.com/zendframework/zend-mvc-plugin-flashmessenger</a></li>
-    <li>Chat: <a href="https://zendframework-slack.herokuapp.com">zendframework-slack.herokuapp.com</a></li>
-    <li>Forum: <a href="https://discourse.zendframework.com/">discourse.zendframework.com</a></li>
-</ul>
+// Alternatively use one of the pre-defined namespaces 
+// (aka: use Zend\Mvc\Controller\Plugin\FlashMessenger;)
+echo $this-&gt;flashMessenger()-&gt;render(FlashMessenger::NAMESPACE_SUCCESS);</code></pre>
+
+<h2 id="css-layout">CSS Layout</h2>
+<p>The <code>FlashMessenger</code> default rendering adds a CSS class to the generated HTML,
+that matches the defined <code>namespace</code> that should be rendered. While it may work
+well for the default cases, every so often you may want to add specific CSS
+classes to the HTML output. This can be done while making use of the second
+parameter of the <code>render()</code> function.</p>
+<pre class="codehilite"><code class="language-php">// Usable in any of your .phtml files
+echo $this-&gt;flashMessenger()-&gt;render('error', ['alert', 'alert-danger']);</code></pre>
+
+<p>The output of this example, using the default HTML rendering settings, would
+look like this:</p>
+<pre class="codehilite"><code class="language-html">&lt;ul class=&quot;alert alert-danger&quot;&gt;
+    &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
+    &lt;li&gt;You, the developer, are AWESOME!&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<h2 id="html-layout">HTML Layout</h2>
+<p>Aside from modifying the rendered CSS classes of the <code>FlashMessenger</code>, you are
+furthermore able to modify the generated HTML as a whole to create even more
+distinct visuals for your flash messages. The default output format is defined
+within the source code of the <code>FlashMessenger</code> view helper itself.</p>
+<pre class="codehilite"><code class="language-php">// Zend/View/Helper/FlashMessenger.php#L41-L43
+protected $messageCloseString     = '&lt;/li&gt;&lt;/ul&gt;';
+protected $messageOpenFormat      = '&lt;ul%s&gt;&lt;li&gt;';
+protected $messageSeparatorString = '&lt;/li&gt;&lt;li&gt;';</code></pre>
+
+<p>These defaults exactly match what we're trying to do. The placeholder <code>%s</code> will
+be filled with the CSS classes output.</p>
+<p>To change this, all we need to do is call the respective setter methods of these
+variables and give them new strings; for example:</p>
+<pre class="codehilite"><code class="language-php">// In any of your .phtml files:
+echo $this-&gt;flashMessenger()
+    -&gt;setMessageOpenFormat('&lt;div%s&gt;&lt;p&gt;')
+    -&gt;setMessageSeparatorString('&lt;/p&gt;&lt;p&gt;')
+    -&gt;setMessageCloseString('&lt;/p&gt;&lt;/div&gt;')
+    -&gt;render('success');</code></pre>
+
+<p>The above code sample then would then generate the following output:</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;success&quot;&gt;
+    &lt;p&gt;Some FlashMessenger Content&lt;/p&gt;
+    &lt;p&gt;You, who's reading the docs, are AWESOME!&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="sample-modification-for-twitter-bootstrap-3">Sample Modification for Twitter Bootstrap 3</h2>
+<p>Taking all the above knowledge into account, we can create a nice, highly usable
+and user-friendly rendering strategy using the
+<a href="http://getbootstrap.com/">Bootstrap front-end framework</a> version 3 layouts:</p>
+<pre class="codehilite"><code class="language-php">// In any of your .phtml files:
+$flash = $this-&gt;flashMessenger();
+$flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
+    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;
+        &amp;times;
+    &lt;/button&gt;
+    &lt;ul&gt;&lt;li&gt;')
+    -&gt;setMessageSeparatorString('&lt;/li&gt;&lt;li&gt;')
+    -&gt;setMessageCloseString('&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;');
+
+echo $flash-&gt;render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+echo $flash-&gt;render('info',    array('alert', 'alert-dismissible', 'alert-info'));
+echo $flash-&gt;render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+echo $flash-&gt;render('success', array('alert', 'alert-dismissible', 'alert-success'));</code></pre>
+
+<p>The output of the above example would create dismissable <code>FlashMessages</code> with
+the following HTML markup. The example only covers one type of <code>FlashMessenger</code>
+output; if you would have several <code>FlashMessages</code> available in each of the
+rendered <code>namespaces</code>, then you would receive the same output multiple times
+only having different CSS classes applied.</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;alert alert-dismissable alert-success&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;×&lt;/button&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
+        &lt;li&gt;You, who's reading the docs, are AWESOME!&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+<h2 id="alternative-configuration-of-the-viewhelper-layout">Alternative Configuration of the ViewHelper Layout</h2>
+<p><code>Zend\View\Helper\Service\FlashMessengerFactory</code> checks the application
+configuration, making it possible to set up the <code>FlashMessenger</code> strings through
+your <code>module.config.php</code>, too. The next example will set up the output to be
+identical with the above Twitter Bootstrap 3 Example</p>
+<pre class="codehilite"><code class="language-php">'view_helper_config' =&gt; [
+    'flashmessenger' =&gt; [
+        'message_open_format'      =&gt; '&lt;div%s&gt;&lt;button type=&quot;button&quot; class=&quot;close&quot;
+data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;&lt;ul&gt;&lt;li&gt;',
+        'message_close_string'     =&gt; '&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;',
+        'message_separator_string' =&gt; '&lt;/li&gt;&lt;li&gt;',
+    ],
+],</code></pre>
 
 
 
@@ -179,14 +305,14 @@
         
         <li class="page-nav__item">
             
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../flash-messenger-plugin/">
+                    <i class="fa fa-chevron-left"></i> Previous
+                </a>
+            
         </li>
 
         
         <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="flash-messenger-plugin/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
             
         </li>
     </ul>
@@ -196,7 +322,7 @@
 <div class="help-wanted">
     <p>
         Found a mistake or want to contribute to the documentation?
-        <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/index.md" target="_blank" class="help-wanted__link">
+        <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-view-helper.md" target="_blank" class="help-wanted__link">
             Edit this page on GitHub!
         </a>
     </p>
@@ -217,7 +343,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href=".">zend-mvc-plugin-flashmessenger</a>
+            <a href="..">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -226,13 +352,13 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                        <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
-                    <li class="subnavigation__list-item ">
-                        <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                    <li class="subnavigation__list-item subnavigation__list-item--active">
+                        <a href="./" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -298,12 +424,12 @@
 </footer>
 
     <script>
-        var base_url = '.',
+        var base_url = '..',
             siteName = 'zend-mvc-plugin-flashmessenger';
     </script>
-    <script src="./js/scripts-5141b2abfe.js"></script>
-        <script src="./search/require.js"></script>
-        <script src="./search/search.js"></script>
+    <script src="../js/scripts-5141b2abfe.js"></script>
+        <script src="../search/require.js"></script>
+        <script src="../search/search.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -339,8 +465,3 @@
 
 
 </html>
-
-<!--
-MkDocs version : 0.17.2
-Build Date UTC : 2018-06-05 13:45:38
--->

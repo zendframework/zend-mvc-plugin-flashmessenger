@@ -4,7 +4,15 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-30</lastmod>
+     <lastmod>2018-06-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/flash-messenger-plugin/</loc>
+     <lastmod>2018-06-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +20,7 @@
     
     <url>
      <loc>/flash-messenger-view-helper/</loc>
-     <lastmod>2018-05-30</lastmod>
+     <lastmod>2018-06-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
