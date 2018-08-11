@@ -7,44 +7,19 @@
 
 namespace Zend\Mvc\Plugin\FlashMessenger;
 
-use Zend\Mvc\Plugin\FlashMessenger\View;
-use Zend\ServiceManager\Factory\InvokableFactory;
-
 class Module
 {
     /**
-     * Provide application configuration.
-     *
-     * Adds aliases and factories for the FlashMessenger plugin.
+     * Return zend-mvc-plugin-flashmessenger configuration.
      *
      * @return array
      */
     public function getConfig()
     {
+        $provider = new ConfigProvider();
         return [
-            'controller_plugins' => [
-                'aliases' => [
-                    'flashmessenger' => FlashMessenger::class,
-                    'flashMessenger' => FlashMessenger::class,
-                    'FlashMessenger' => FlashMessenger::class,
-                    'Zend\Mvc\Controller\Plugin\FlashMessenger' => FlashMessenger::class,
-                ],
-                'factories' => [
-                    FlashMessenger::class => InvokableFactory::class,
-                ],
-            ],
-            'view_helpers' => [
-                'aliases' => [
-                    'flashmessenger' => View\Helper\FlashMessenger::class,
-                    'flashMessenger' => View\Helper\FlashMessenger::class,
-                    'FlashMessenger' => View\Helper\FlashMessenger::class,
-
-                ],
-                'factories' => [
-                    View\Helper\FlashMessenger::class => View\Helper\FlashMessengerFactory::class,
-                    'zendviewhelperflashmessenger' => View\Helper\FlashMessengerFactory::class,
-                ]
-            ]
+            'controller_plugins' => $provider->getPluginConfig(),
+            'view_helpers' => $provider->getViewHelperConfig(),
         ];
     }
 }
