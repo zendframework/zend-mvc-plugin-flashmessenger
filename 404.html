@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plugin for creating and exposing flash messages via zend-mvc controllers">  
-    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="shortcut icon" href="//img/favicon.ico">
 
-    <title>Controller Plugin - zend-mvc-plugin-flashmessenger - Zend Framework Docs</title>
+    <title>zend-mvc-plugin-flashmessenger - Zend Framework Docs</title>
 
-    <link rel="stylesheet" href="../css/styles-f3b53f5ceb.css">
+    <link rel="stylesheet" href="//css/styles-f3b53f5ceb.css">
 </head>
 <body id="page-top">
 
@@ -31,7 +31,7 @@
             
             <span class="navbar-brand">
                 <a class="logo-link" href="https://framework.zend.com/" data-tooltip data-placement="bottom" title="Go to the ZF homepage">
-                    <img src="../img/zend-framework-logo.svg" height="28" alt="Zend Framework">
+                    <img src="//img/zend-framework-logo.svg" height="28" alt="Zend Framework">
                 </a>
             </span>
         </div>
@@ -66,7 +66,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-mvc-plugin-flashmessenger</a>
+            <a href="/.">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -74,14 +74,14 @@
         <ul class="subnavigation__list">
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Controller Plugin</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                        <a href="/flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -154,197 +154,18 @@
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
-                    <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-    <li><a href="https://framework.zend.com/">Home</a></li>
 
-    
-        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+<h1 class="content__title">404</h1>
+<blockquote>
+    <h3>Something went wrong!</h3>
+    <p>
+        We're sorry, but the page you are looking for does not exist.
+    </p>
+</blockquote>
 
-        
-            <li><a href="..">zend-mvc-plugin-flashmessenger</a></li>
-
-            
-
-            <li class="active">Controller Plugin</li>
-        
-    
-</ol>
+<a href="/" class="btn btn-default" role="button">Go to homepage</a>
 
 
-    
-
-    
-    
-
-    
-    
-        <div class="toc">
-            <h6 class="toc__headline">In This Article</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#examples" class="toc__link">Examples</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
-
-
-    <h1 id="flashmessenger-controller-plugin">FlashMessenger Controller Plugin</h1>
-<p>The <code>FlashMessenger</code> controller plugin is designed to create and retrieve
-self-expiring, session-based messages. It exposes a number of methods:</p>
-<ul>
-<li>
-<p><code>setSessionManager(Zend\Session\ManagerInterface $manager) : FlashMessenger</code>:
-  Allows you to specify an alternate session manager, if desired.</p>
-</li>
-<li>
-<p><code>getSessionManager() : Zend\Session\ManagerInterface</code>: Allows you to retrieve
-  the session manager registered.</p>
-</li>
-<li>
-<p><code>getContainer() : Zend\Session\Container</code>: Returns the
-  <code>Zend\Session\Container</code> instance in which the flash messages are stored.</p>
-</li>
-<li>
-<p><code>setNamespace(string $namespace = 'default') : FlashMessenger</code>:
-  Allows you to specify a specific namespace in the container in which to store
-  or from which to retrieve flash messages.</p>
-</li>
-<li>
-<p><code>getNamespace() : string</code>: retrieves the name of the flash message namespace.</p>
-</li>
-<li>
-<p><code>addMessage(string $message) : FlashMessenger</code>: Allows you to add a message to
-  the current namespace of the session container.</p>
-</li>
-<li>
-<p><code>hasMessages() : bool</code>: Lets you determine if there are any flash messages
-  from the current namespace in the session container.</p>
-</li>
-<li>
-<p><code>getMessages() : array</code>: Retrieves the flash messages from the current
-  namespace of the session container</p>
-</li>
-<li>
-<p><code>clearMessages() : bool</code>: Clears all flash messages in current namespace of
-  the session container. Returns <code>true</code> if messages were cleared, <code>false</code> if
-  none existed.</p>
-</li>
-<li>
-<p><code>hasCurrentMessages() : bool</code>: Indicates whether any messages were added
-  during the current request.</p>
-</li>
-<li>
-<p><code>getCurrentMessages() : array</code>: Retrieves any messages added during the
-  current request.</p>
-</li>
-<li>
-<p><code>clearCurrentMessages() : bool</code>: Removes any messages added during the current
-  request. Returns <code>true</code> if current messages were cleared, <code>false</code> if none
-  existed.</p>
-</li>
-<li>
-<p><code>clearMessagesFromContainer() : bool</code>: Clear all messages from the container.
-  Returns <code>true</code> if any messages were cleared, <code>false</code> if none existed.</p>
-</li>
-</ul>
-<p>This plugin also provides four meaningful namespaces, namely: <code>INFO</code>, <code>ERROR</code>,
-<code>WARNING</code>, and <code>SUCCESS</code>. The following functions are related to these
-namespaces:</p>
-<ul>
-<li>
-<p><code>addInfoMessage(string $message): FlashMessenger</code>: Add a message to "info"
-  namespace.</p>
-</li>
-<li>
-<p><code>hasCurrentInfoMessages() : bool</code>: Check to see if messages have been added to
-  "info" namespace within this request.</p>
-</li>
-<li>
-<p><code>addWarningMessage(string $message) : FlashMessenger</code>: Add a message to
-  "warning" namespace.</p>
-</li>
-<li>
-<p><code>hasCurrentWarningMessages() : bool</code>: Check to see if messages have been added
-  to "warning" namespace within this request.</p>
-</li>
-<li>
-<p><code>addErrorMessage(string $message) : FlashMessenger</code>: Add a message to "error"
-  namespace.</p>
-</li>
-<li>
-<p><code>hasCurrentErrorMessages() : bool</code>: Check to see if messages have been added
-  to "error" namespace within this request.</p>
-</li>
-<li>
-<p><code>addSuccessMessage(string $message) : FlashMessenger</code>: Add a message to
-  "success" namespace.</p>
-</li>
-<li>
-<p><code>hasCurrentSuccessMessages() :bool</code>: Check to see if messages have been added
-  to "success" namespace within this request.</p>
-</li>
-</ul>
-<p>Additionally, the <code>FlashMessenger</code> implements both <code>IteratorAggregate</code> and
-<code>Countable</code>, allowing you to iterate over and count the flash messages in the
-current namespace within the session container.</p>
-<h3 id="examples">Examples</h3>
-<pre class="codehilite"><code class="language-php">public function processAction()
-{
-    // ... do some work ...
-    $this-&gt;flashMessenger()-&gt;addMessage('You are now logged in.');
-    return $this-&gt;redirect()-&gt;toRoute('user-success');
-}
-
-public function successAction()
-{
-    $return = ['success' =&gt; true];
-    $flashMessenger = $this-&gt;flashMessenger();
-    if ($flashMessenger-&gt;hasMessages()) {
-        $return['messages'] = $flashMessenger-&gt;getMessages();
-    }
-    return $return;
-}</code></pre>
-
-
-
-    <nav>
-    <ul class="page-nav hidden-print">
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="..">
-                    <i class="fa fa-chevron-left"></i> Previous
-                </a>
-            
-        </li>
-
-        
-        <li class="page-nav__item">
-            
-                <a rel="next" class="page-nav__link page-nav__link--next" href="../flash-messenger-view-helper/">
-                    Next <i class="fa fa-chevron-right"></i>
-                </a>
-            
-        </li>
-    </ul>
-</nav>
-
-
-
-    <div class="help-wanted">
-        <p>
-            Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-plugin.md" target="_blank" class="help-wanted__link">
-                Edit this page on GitHub!
-            </a>
-        </p>
-    </div>
-
-                
             <!-- content:end -->
             </div>
             <div class="col-md-3 col-xs-12 sidebar">
@@ -360,7 +181,7 @@ public function successAction()
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-mvc-plugin-flashmessenger</a>
+            <a href="/.">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -368,14 +189,14 @@ public function successAction()
         <ul class="subnavigation__list">
             
                 
-                    <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">Controller Plugin</a>
+                    <li class="subnavigation__list-item ">
+                        <a href="/flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                        <a href="/flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -450,11 +271,11 @@ public function successAction()
 </footer>
 
     <script>
-        var base_url = '..',
+        var base_url = '/',
             siteName = 'zend-mvc-plugin-flashmessenger';
     </script>
-    <script src="../js/scripts-8d7ae56abf.js"></script>
-        <script src="../search/main.js"></script>
+    <script src="//js/scripts-8d7ae56abf.js"></script>
+        <script src="/search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
