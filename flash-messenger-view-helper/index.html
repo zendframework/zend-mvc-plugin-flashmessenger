@@ -11,7 +11,8 @@
 
     <title>View Helper - zend-mvc-plugin-flashmessenger</title>
 
-    <link rel="stylesheet" href="../css/styles-f773ae3616.css">
+    <link rel="stylesheet" href="../css/styles-18b942728f.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
 </head>
 <body id="page-top">
 
@@ -66,7 +67,7 @@
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-mvc-plugin-flashmessenger</a>
+            <a href="">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -75,13 +76,13 @@
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                        <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">View Helper</a>
+                        <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -138,19 +139,36 @@
 </header>
 
     
+    <div class="laminas-announcement">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
     <div class="container">
         <div class="row">
             <div class="col-md-9 col-xs-12 content" role="main">
             <!-- content:begin -->
                 
                     <ol class="breadcrumb" role="navigation" aria-label="breadcrumbs navigation">
-  <li><a href="https://framework.zend.com/">Home</a></li>
-  <li><a href="https://docs.zendframework.com/">Docs</a></li>
-  <li><a href="..">zend-mvc-plugin-flashmessenger</a></li>
-  
+    <li><a href="https://framework.zend.com/">Home</a></li>
+
     
-  
-  <li class="active">View Helper</li>
+        <li><a href="https://docs.zendframework.com/">Documentation</a></li>
+
+        
+            <li><a href="">zend-mvc-plugin-flashmessenger</a></li>
+
+            
+
+            <li class="active">View Helper</li>
+        
+    
 </ol>
 
 
@@ -219,7 +237,7 @@ echo $this-&gt;flashMessenger()-&gt;render('error', ['alert', 'alert-danger']);<
 
 <p>The output of this example, using the default HTML rendering settings, would
 look like this:</p>
-<pre class="codehilite"><code class="language-html">&lt;ul class=&quot;alert alert-danger&quot;&gt;
+<pre class="codehilite"><code class="language-html">&lt;ul class="alert alert-danger"&gt;
     &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
     &lt;li&gt;You, the developer, are AWESOME!&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
@@ -246,7 +264,7 @@ echo $this-&gt;flashMessenger()
     -&gt;render('success');</code></pre>
 
 <p>The above code sample then would then generate the following output:</p>
-<pre class="codehilite"><code class="language-html">&lt;div class=&quot;success&quot;&gt;
+<pre class="codehilite"><code class="language-html">&lt;div class="success"&gt;
     &lt;p&gt;Some FlashMessenger Content&lt;/p&gt;
     &lt;p&gt;You, who's reading the docs, are AWESOME!&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -258,7 +276,7 @@ and user-friendly rendering strategy using the
 <pre class="codehilite"><code class="language-php">// In any of your .phtml files:
 $flash = $this-&gt;flashMessenger();
 $flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
-    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;button type="button" class="close" data-dismiss="alert" aria-hidden="true"&gt;
         &amp;times;
     &lt;/button&gt;
     &lt;ul&gt;&lt;li&gt;')
@@ -275,8 +293,8 @@ the following HTML markup. The example only covers one type of <code>FlashMessen
 output; if you would have several <code>FlashMessages</code> available in each of the
 rendered <code>namespaces</code>, then you would receive the same output multiple times
 only having different CSS classes applied.</p>
-<pre class="codehilite"><code class="language-html">&lt;div class=&quot;alert alert-dismissable alert-success&quot;&gt;
-    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;×&lt;/button&gt;
+<pre class="codehilite"><code class="language-html">&lt;div class="alert alert-dismissable alert-success"&gt;
+    &lt;button type="button" class="close" data-dismiss="alert" aria-hidden="true"&gt;×&lt;/button&gt;
     &lt;ul&gt;
         &lt;li&gt;Some FlashMessenger Content&lt;/li&gt;
         &lt;li&gt;You, who's reading the docs, are AWESOME!&lt;/li&gt;
@@ -290,8 +308,8 @@ your <code>module.config.php</code>, too. The next example will set up the outpu
 identical with the above Twitter Bootstrap 3 Example</p>
 <pre class="codehilite"><code class="language-php">'view_helper_config' =&gt; [
     'flashmessenger' =&gt; [
-        'message_open_format'      =&gt; '&lt;div%s&gt;&lt;button type=&quot;button&quot; class=&quot;close&quot;
-data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;&lt;ul&gt;&lt;li&gt;',
+        'message_open_format'      =&gt; '&lt;div%s&gt;&lt;button type="button" class="close"
+data-dismiss="alert" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;&lt;ul&gt;&lt;li&gt;',
         'message_close_string'     =&gt; '&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;',
         'message_separator_string' =&gt; '&lt;/li&gt;&lt;li&gt;',
     ],
@@ -305,7 +323,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
         
         <li class="page-nav__item">
             
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../flash-messenger-plugin/">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="flash-messenger-plugin/">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             
@@ -319,14 +337,16 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
 </nav>
 
 
-<div class="help-wanted">
-    <p>
-        Found a mistake or want to contribute to the documentation?
-        <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-view-helper.md" target="_blank" class="help-wanted__link">
-            Edit this page on GitHub!
-        </a>
-    </p>
-</div>
+
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-view-helper.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
+
                 
             <!-- content:end -->
             </div>
@@ -343,7 +363,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
                     
     <div class="subnavigation hidden-print">
         <h4 class="subnavigation__title">
-            <a href="..">zend-mvc-plugin-flashmessenger</a>
+            <a href="">zend-mvc-plugin-flashmessenger</a>
         </h4>
 
         <h5 class="subnavigation__subtitle">Table of Contents</h5>
@@ -352,13 +372,13 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
             
                 
                     <li class="subnavigation__list-item ">
-                        <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                        <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
                     </li>
                 
             
                 
                     <li class="subnavigation__list-item subnavigation__list-item--active">
-                        <a href="./" class="subnavigation__link">View Helper</a>
+                        <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
                     </li>
                 
             
@@ -417,6 +437,15 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
                     <li class="support__list-item">
                         <a href="https://twitter.com/zfdevteam" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
                     </li>
+                    <li class="support__list-item">
+                        <a href="https://tinyletter.com/mwopzend" class="support__link" title="Newsletter"><i class="fa fa-envelope"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://framework.zend.com/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
+                    </li>
+                    <li class="support__list-item">
+                        <a href="https://framework.zend.com/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -427,9 +456,8 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
         var base_url = '..',
             siteName = 'zend-mvc-plugin-flashmessenger';
     </script>
-    <script src="../js/scripts-5141b2abfe.js"></script>
-        <script src="../search/require.js"></script>
-        <script src="../search/search.js"></script>
+    <script src="../js/scripts-edc4cfa790.js"></script>
+        <script src="../search/main.js"></script>
 
     
     <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
@@ -458,6 +486,14 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
             </div>
         </div>
     </div>
+
+<script>
+// Anchors
+anchors.options.placement = 'left';
+anchors.add(
+    '.content h1:not(.content__title), .content h2, .content > h3, .content h4, .content h5'
+);
+</script>
 
 
 
