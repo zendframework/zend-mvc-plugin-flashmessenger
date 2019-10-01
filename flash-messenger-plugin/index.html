@@ -203,17 +203,6 @@
 
     
     
-        <div class="toc">
-            <h6 class="toc__headline">In This Article</h6>
-            <ul class="toc__list">
-                
-                    <li class="toc__entry">
-                        <a href="#examples" class="toc__link">Examples</a>
-                    </li>
-                
-            </ul>
-        </div>
-    
 
     </div>
 
@@ -316,8 +305,8 @@ namespaces:</p>
 <p>Additionally, the <code>FlashMessenger</code> implements both <code>IteratorAggregate</code> and
 <code>Countable</code>, allowing you to iterate over and count the flash messages in the
 current namespace within the session container.</p>
-<h3 id="examples">Examples</h3>
-<pre class="codehilite"><code class="language-php">public function processAction()
+<h3>Examples</h3>
+<p> <pre class=codehilite><code class=language-php>public function processAction()
 {
     // ... do some work ...
     $this-&gt;flashMessenger()-&gt;addMessage('You are now logged in.');
@@ -332,7 +321,7 @@ public function successAction()
         $return['messages'] = $flashMessenger-&gt;getMessages();
     }
     return $return;
-}</code></pre>
+}</code></pre></p>
 
 
 
@@ -366,7 +355,7 @@ public function successAction()
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/flash-messenger-plugin.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-plugin.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
