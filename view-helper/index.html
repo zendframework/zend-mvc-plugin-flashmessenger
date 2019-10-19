@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Plugin for creating and exposing flash messages via zend-mvc controllers">  
-    <link rel="canonical" href="https://docs.zendframework.com/zend-mvc-plugin-flashmessenger/flash-messenger-view-helper/">
+    <link rel="canonical" href="https://docs.zendframework.com/zend-mvc-plugin-flashmessenger/view-helper/">
     <link rel="shortcut icon" href="../img/favicon.ico">
 
     <title>View Helper - zend-mvc-plugin-flashmessenger - Zend Framework Docs</title>
@@ -82,7 +82,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                                <a href="../controller-plugin/" class="subnavigation__link">Controller Plugin</a>
                             </li>
                         
                     
@@ -227,6 +227,10 @@
                         <a href="#alternative-configuration-of-the-viewhelper-layout" class="toc__link">Alternative Configuration of the ViewHelper Layout</a>
                     </li>
                 
+                    <li class="toc__entry">
+                        <a href="#ide-auto-completion-in-templates" class="toc__link">IDE auto-completion in templates</a>
+                    </li>
+                
             </ul>
         </div>
     
@@ -235,7 +239,7 @@
 
     <h1 id="flashmessenger-view-helper">FlashMessenger View Helper</h1>
 <p>The <code>FlashMessenger</code> helper is used to render the messages of the
-<a href="../flash-messenger-plugin/">FlashMessenger controller plugin</a>.</p>
+<a href="../controller-plugin/">FlashMessenger controller plugin</a>.</p>
 <h2 id="basic-usage">Basic Usage</h2>
 <p>When only using the default <code>namespace</code> for the <code>FlashMessenger</code>, you can do the
 following:</p>
@@ -248,7 +252,7 @@ which translates to <code>default</code>.</p>
 <p> <pre class=codehilite><code class=language-php>// Usable in any of your .phtml files
 echo $this-&gt;flashMessenger()-&gt;render('error');
 
-// Alternatively use one of the pre-defined namespaces 
+// Alternatively use one of the pre-defined namespaces
 // (aka: use Zend\Mvc\Controller\Plugin\FlashMessenger;)
 echo $this-&gt;flashMessenger()-&gt;render(FlashMessenger::NAMESPACE_SUCCESS);</code></pre></p>
 <h2 id="css-layout">CSS Layout</h2>
@@ -303,10 +307,10 @@ $flash-&gt;setMessageOpenFormat('&lt;div%s&gt;
     -&gt;setMessageSeparatorString('&lt;/li&gt;&lt;li&gt;')
     -&gt;setMessageCloseString('&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;');
 
-echo $flash-&gt;render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
-echo $flash-&gt;render('info',    array('alert', 'alert-dismissible', 'alert-info'));
-echo $flash-&gt;render('default', array('alert', 'alert-dismissible', 'alert-warning'));
-echo $flash-&gt;render('success', array('alert', 'alert-dismissible', 'alert-success'));</code></pre></p>
+echo $flash-&gt;render('error',   ['alert', 'alert-dismissible', 'alert-danger']);
+echo $flash-&gt;render('info',    ['alert', 'alert-dismissible', 'alert-info']);
+echo $flash-&gt;render('default', ['alert', 'alert-dismissible', 'alert-warning']);
+echo $flash-&gt;render('success', ['alert', 'alert-dismissible', 'alert-success']);</code></pre></p>
 <p>The output of the above example would create dismissable <code>FlashMessages</code> with
 the following HTML markup. The example only covers one type of <code>FlashMessenger</code>
 output; if you would have several <code>FlashMessages</code> available in each of the
@@ -332,6 +336,22 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
         'message_separator_string' =&gt; '&lt;/li&gt;&lt;li&gt;',
     ],
 ],</code></pre></p>
+<h2 id="ide-auto-completion-in-templates">IDE auto-completion in templates</h2>
+<p>The <code>Zend\Mvc\Plugin\FlashMessenger\View\HelperTrait</code> trait can be used to
+provide auto-completion for modern IDEs. It defines the aliases of the view
+helpers in a DocBlock as <code>@method</code> tags.</p>
+<h3>Usage</h3>
+<p>In order to allow auto-completion in templates, <code>$this</code> variable should be
+type-hinted via a DocBlock at the top of your template. It is recommended that
+you always add the <code>Zend\View\Renderer\PhpRenderer</code> as the first type, so that
+the IDE can auto-suggest the default view helpers from <code>zend-view</code>. Next, chain
+the <code>HelperTrait</code> from <code>zend-i18n</code> with a pipe symbol (a.k.a. vertical bar) <code>|</code>:</p>
+<p> <pre class=codehilite><code class=language-php>/**
+ * @var Zend\View\Renderer\PhpRenderer|Zend\Mvc\Plugin\FlashMessenger\View\HelperTrait $this
+ */</code></pre></p>
+<p>You may chain as many <code>HelperTrait</code> traits as you like, depending on view
+helpers from which Zend Framework component you are using and would like to
+provide auto-completion for.</p>
 
 
 
@@ -342,7 +362,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
         
         <li class="page-nav__item">
             
-                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../flash-messenger-plugin/">
+                <a rel="prev" class="page-nav__link page-nav__link--prev" href="../controller-plugin/">
                     <i class="fa fa-chevron-left"></i> Previous
                 </a>
             
@@ -361,7 +381,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
     <div class="help-wanted">
         <p>
             Found a mistake or want to contribute to the documentation?
-            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/flash-messenger-view-helper.md" target="_blank" class="help-wanted__link">
+            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/view-helper.md" target="_blank" class="help-wanted__link">
                 Edit this page on GitHub!
             </a>
         </p>
@@ -398,7 +418,7 @@ data-dismiss=&quot;alert&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/b
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="../flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                                <a href="../controller-plugin/" class="subnavigation__link">Controller Plugin</a>
                             </li>
                         
                     

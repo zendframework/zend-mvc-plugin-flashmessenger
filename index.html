@@ -82,7 +82,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                                <a href="controller-plugin/" class="subnavigation__link">Controller Plugin</a>
                             </li>
                         
                     
@@ -96,7 +96,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                                <a href="view-helper/" class="subnavigation__link">View Helper</a>
                             </li>
                         
                     
@@ -193,9 +193,17 @@
 <p>Plugin for creating and exposing flash messages via zend-mvc controllers</p>
 
 
-    <h2>Installation</h2>
-    <h3>Using Composer</h3>
-    <pre><code class="language-bash">$ composer require zendframework/zend-mvc-plugin-flashmessenger</code></pre>
+    <h2 id="installation">Installation</h2>
+<p>Install via composer:</p>
+<p> <pre class=codehilite><code class=language-bash>$ composer require zendframework/zend-mvc-plugin-flashmessenger</code></pre></p>
+<p>If you are using the <a href="https://docs.zendframework.com/zend-component-installer/">zend-component-installer</a>,
+you're done!</p>
+<p>If not, you will need to add the component as a module to your
+application. Add the entry <code>'Zend\Mvc\Plugin\FlashMessenger'</code> to
+your list of modules in your application configuration (typically
+one of <code>config/application.config.php</code> or <code>config/modules.config.php</code>).</p>
+
+    
 
 
 <h2>Support</h2>
@@ -220,7 +228,7 @@
         
         <li class="page-nav__item">
             
-                <a rel="next" class="page-nav__link page-nav__link--next" href="flash-messenger-plugin/">
+                <a rel="next" class="page-nav__link page-nav__link--next" href="controller-plugin/">
                     Next <i class="fa fa-chevron-right"></i>
                 </a>
             
@@ -230,6 +238,15 @@
 
 
 
+
+    <div class="help-wanted">
+        <p>
+            Found a mistake or want to contribute to the documentation?
+            <a href="https://github.com/zendframework/zend-mvc-plugin-flashmessenger/edit/master/docs/book/index.md" target="_blank" class="help-wanted__link">
+                Edit this page on GitHub!
+            </a>
+        </p>
+    </div>
 
                 
             <!-- content:end -->
@@ -262,7 +279,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="flash-messenger-plugin/" class="subnavigation__link">Controller Plugin</a>
+                                <a href="controller-plugin/" class="subnavigation__link">Controller Plugin</a>
                             </li>
                         
                     
@@ -276,7 +293,7 @@
                     
                         
                             <li class="subnavigation__list-item ">
-                                <a href="flash-messenger-view-helper/" class="subnavigation__link">View Helper</a>
+                                <a href="view-helper/" class="subnavigation__link">View Helper</a>
                             </li>
                         
                     
@@ -396,5 +413,5 @@
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-10-01 20:25:51
+Build Date UTC : 2019-10-19 22:29:51
 -->
