@@ -2,7 +2,7 @@
 
 > ## Repository abandoned 2019-12-31
 >
-> This repository has moved to laminas/laminas-mvc-plugin-flashmessenger.
+> This repository has moved to [laminas/laminas-mvc-plugin-flashmessenger](https://github.com/laminas/laminas-mvc-plugin-flashmessenger).
 
 [![Build Status](https://secure.travis-ci.org/zendframework/zend-mvc-plugin-flashmessenger.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-mvc-plugin-flashmessenger)
 [![Coverage Status](https://coveralls.io/repos/github/zendframework/zend-mvc-plugin-flashmessenger/badge.svg?branch=master)](https://coveralls.io/github/zendframework/zend-mvc-plugin-flashmessenger?branch=master)
